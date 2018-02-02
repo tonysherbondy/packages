@@ -2,8 +2,8 @@
   :resource-paths #{"resources"}
   :dependencies '[[cljsjs/boot-cljsjs "0.9.0" :scope "test"]
                   [cljsjs/moment "2.17.1-0"]
-                  [cljsjs/react "15.5.4-1"]
-                  [cljsjs/react-dom "15.5.4-1"]])
+                  [cljsjs/react "16.2.0-2"]
+                  [cljsjs/react-dom "16.2.0-2"]])
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all]
          '[boot.core :as boot]
@@ -11,7 +11,7 @@
          '[boot.util :refer [sh]]
          '[clojure.java.io :as io])
 
-(def +lib-version+ "12.2.4")
+(def +lib-version+ "16.2.1")
 (def +version+ (str +lib-version+ "-1"))
 (def +lib-folder+ (format "react-dates-%s" +lib-version+))
 
@@ -25,7 +25,7 @@
 
 (deftask download-react-dates []
   (download :url      (format "https://github.com/airbnb/react-dates/archive/v%s.zip" +lib-version+)
-            :checksum "48c7e7dfbecbeb414085927474af91b1"
+            :checksum "277ab7915cd9f8f02fa2fc02827cf118"
             :unzip    true))
 
 (deftask build-react-dates []
@@ -64,7 +64,7 @@
 
     (deps-cljs :name "cljsjs.react-dates" :requires ["cljsjs.react"
                                                      "cljsjs.moment"
-                                                     "cljsjs.react.dom"])
+                                                     "cljsjs.react-dom"])
 
     (pom)
     (jar)))
